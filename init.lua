@@ -6,9 +6,12 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.cmd("set relativenumber")
 vim.cmd("set number")
+vim.cmd("set cursorline")
 vim.cmd("set mouse=a")
 vim.cmd("set clipboard+=unnamedplus")
+
 vim.api.nvim_set_hl(0, "Normal", { bg = "#040404" })
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "#242424", fg = nil })
 
 vim.diagnostic.config({
     underline = true, -- enable underline
@@ -54,10 +57,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank({
             higroup = "Visual", -- highlight style
-            timeout = 150, -- duration in milliseconds
+            timeout = 150,      -- duration in milliseconds
         })
     end,
 })
 
 require("config.keymaps")
+require("config.lazy")
 require("config.lazy")
