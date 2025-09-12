@@ -3,5 +3,7 @@
 ## 설치
 
 ```shell
-git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
+git clone https://github.com/ityeri/itnvim ~/.config/nvim
 ```
+
+TODO 윈도우 경로
