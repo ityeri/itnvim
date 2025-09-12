@@ -55,13 +55,14 @@ let g:colors_name = 'eldar'
 
 " Define colors (Tango is the default)
 " GUI colors
-let s:red       = get(g:, 'eldar_red', '#EF2929')
-let s:yellow    = get(g:, 'eldar_yellow', '#FCE94F')
-let s:green     = get(g:, 'eldar_green', '#8AE234')
-let s:cyan      = get(g:, 'eldar_cyan', '#34E2E2')
-let s:blue      = get(g:, 'eldar_blue', '#729FCF')
-let s:magenta   = get(g:, 'eldar_magenta', '#AD7FA8')
+let s:red       = get(g:, 'eldar_red', '#bf616a')
+let s:yellow    = get(g:, 'eldar_yellow', '#ebcb8b')
+let s:green     = get(g:, 'eldar_green', '#a3be8c')
+let s:cyan      = get(g:, 'eldar_cyan', '#88c0d0')
+let s:blue      = get(g:, 'eldar_blue', '#81a1c1')
+let s:magenta   = get(g:, 'eldar_magenta', '#a891b0')
 let s:gui_text  = get(g:, 'eldar_text', 'White')
+" let s:gui_bg    = get(g:, 'eldar_background', '#4d6174')
 let s:gui_bg    = get(g:, 'eldar_background', 'Black')
 
 " Terminal colors
@@ -147,7 +148,7 @@ let  s:ColourAssignment['SpecialKey']  =  {'GUIFG':  s:cyan,      'CTERMFG':  'C
 " Variable types
 " --------------
 let  s:ColourAssignment['Constant']    =  {'GUIFG':  s:magenta,  'CTERMFG':  'magenta'}
-let  s:ColourAssignment['Number']      =  {'GUIFG':  s:red,      'CTERMFG':  'red'}
+let  s:ColourAssignment['Number']      =  {'GUIFG':  s:green,      'CTERMFG':  'green'}
 highlight! link String Constant
 highlight! link Boolean Constant
 highlight! link Float Number
@@ -172,7 +173,7 @@ highlight! link Operator Statement
 highlight! link Keyword Statement
 highlight! link Exception Statement
 
-let  s:ColourAssignment['Special']    =  {'GUIFG':  s:red,     'CTERMFG':  'red'}
+let  s:ColourAssignment['Special']    =  {'GUIFG':  s:cyan,     'CTERMFG':  'cyan'}
 highlight! link SpecialChar Special
 highlight! link Tag Special
 highlight! link Delimiter Special
