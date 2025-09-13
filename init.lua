@@ -10,7 +10,7 @@ vim.cmd("set cursorline")
 vim.cmd("set mouse=a")
 vim.cmd("set clipboard+=unnamedplus")
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "#040404" })
+vim.api.nvim_set_hl(0, "Normal", { bg = "#0d1013" })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "#101010", fg = nil })
 
 vim.diagnostic.config({
