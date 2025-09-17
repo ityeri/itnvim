@@ -7,6 +7,6 @@ return
     keys = {
         --[[ { "<leader>th", "<Cmd>ToggleTerm direction=horizontal size=10<CR>", desc = "ToggleTerm Horizontal" }, ]]
         --[[ { "<leader>tv", "<Cmd>ToggleTerm direction=vertical size=80<CR>",   desc = "ToggleTerm Vertical" } ]]
-        { "<leader>t", "<Cmd>ToggleTerm direction=float<CR>", desc = "ToggleTerm Float" }
+        { "'", "<Cmd>ToggleTerm direction=float<CR>", desc = "ToggleTerm Float" }
     }
 }
