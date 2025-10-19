@@ -3,7 +3,7 @@ return {
     keys = {
         -- lazy load on 한영전환
         {
-            "<f12>",
+            "<f9>",
             function()
                 require("korean_ime").change_mode()
             end,
@@ -14,7 +14,7 @@ return {
     config = function()
         require("korean_ime").setup()
 
-        vim.keymap.set("i", "<f9>", function()
+        vim.keymap.set("i", "<f12>", function()
             require("korean_ime").convert_hanja()
         end, { noremap = true, silent = true, desc = "한자" })
     end,
