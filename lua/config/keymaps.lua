@@ -1,6 +1,8 @@
 -- LSP keymaps
 local opts = { noremap = true, silent = true }
 
+vim.g.mapleader = " "
+
 -- Go to definition
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 
@@ -23,4 +25,13 @@ vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 -- Code actions
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+vim.keymap.set("n", "ca", vim.lsp.buf.code_action, opts)
+
+-- Show floating error
+vim.keymap.set("n", "E", vim.diagnostic.open_float, opts)
+
+-- Window navigation with Ctrl + hjkl
+vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
+vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
+vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
+vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
