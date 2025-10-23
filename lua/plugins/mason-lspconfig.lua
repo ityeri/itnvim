@@ -2,6 +2,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     opts = {
         ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls" },
+        automatic_enable = { exclude = { "clangd" } }
     },
     lazy = false,
     dependencies = {
