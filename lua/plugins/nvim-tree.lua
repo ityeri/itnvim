@@ -45,16 +45,19 @@ return {
             },
         },
     },
-    config = function()
-        require('nvim-tree').setup {
-            renderer = {
-                group_empty = true,
-            },
-            filters = {
-                dotfiles = false,
+    opts = {
+        renderer = {
+            group_empty = true,
+        },
+        filters = {
+            dotfiles = false,
+        },
+        actions = {
+            open_file = {
+                quit_on_open = true
             }
         }
-    end,
+    },
     keys = {
         { ";", function() require("nvim-tree.api").tree.toggle({ focus = true }) end, desc = "Toggle nvim tree" }
     },
