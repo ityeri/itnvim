@@ -46,6 +46,9 @@ return {
         },
     },
     opts = {
+        view = {
+            relativenumber = true,
+        },
         renderer = {
             group_empty = true,
         },
