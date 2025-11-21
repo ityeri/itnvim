@@ -66,4 +66,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 require("config.keymaps")
 require("config.lazy")
-require("config.lazy")
+require("config.hpack")
