@@ -1,8 +1,5 @@
 local function hpack()
-    local err = vim.fn.system("hpack")
-    if vim.v.shell_error ~= 0 then
-        print(err)
-    end
+    vim.fn.system("hpack")
 end
 
 vim.api.nvim_create_autocmd("BufWritePost", {
