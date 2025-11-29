@@ -26,15 +26,6 @@ return {
             cmd = { vim.fn.stdpath("config") .. "/shell/clangd-direnv.sh" }
         })
 
-        vim.lsp.config("hls", {
-            capabilities = capabilities,
-            filetypes = { 'haskell', 'lhaskell' },
-            cmd = { "haskell-language-server-wrapper", "--lsp" },
-            settings = {
-                haskell = {
-                    formattingProvider = "fourmolu"
-                }
-            }
-        })
+        vim.lsp.enable("hls")
     end,
 }
