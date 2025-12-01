@@ -21,7 +21,7 @@ return {
 
         local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-        vim.lsp.config("ts_ls", {
+        vim.lsp.config("clangd", {
             capabilities = capabilities,
             cmd = { vim.fn.stdpath("config") .. "/shell/clangd-direnv.sh" }
         })

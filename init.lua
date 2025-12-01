@@ -4,6 +4,7 @@ vim.cmd("colorscheme pop-punk")
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.messagesopt = "wait:30,history:500"
 vim.cmd("set relativenumber")
 vim.cmd("set number")
 vim.cmd("set cursorline")
