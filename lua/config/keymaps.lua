@@ -36,4 +36,11 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
 vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
 vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', opts)
+vim.keymap.set('t', '<Esc>', function()
+    if vim.b.term_title and vim.b.term_title:match("zellij") then
+        return "<Esc>"
+    end
+    return "<C-\\><C-n>"
+end, { expr = true, silent = true })
+
+vim.keymap.set('t', '<C-Esc>', "<C-\\><C-n>", opts)

@@ -17,7 +17,7 @@ return {
             ".",
             function() require("sidekick.cli").toggle("opencode") end,
             desc = "Sidekick Toggle",
-            mode = { "n", "t", "i", "x" },
+            mode = { "n" },
         },
         {
             "<leader>aa",
