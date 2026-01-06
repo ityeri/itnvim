@@ -37,7 +37,7 @@ vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
 vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 
 vim.keymap.set('t', '<Esc>', function()
-    if vim.b.term_title and vim.b.term_title:match("zellij") then
+    if vim.b.term_title and vim.b.term_title:match("ellij") then
         return "<Esc>"
     end
     return "<C-\\><C-n>"
