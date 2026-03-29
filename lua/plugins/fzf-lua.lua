@@ -4,5 +4,8 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     -- or if using mini.icons/mini.nvim
     -- dependencies = { "echasnovski/mini.icons" },
-    opts = {}
+    opts = {},
+    keys = {
+        { "<leader>fg", "<Cmd>FzfLua live_grep<CR>", desc = "FZF Live Grep" },
+    },
 }

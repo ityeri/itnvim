@@ -56,6 +56,20 @@ return {
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
+            providers = {
+                path = {
+                    module = 'blink.cmp.sources.path',
+                    score_offset = 3,
+                    fallbacks = { 'buffer' },
+                    opts = {
+                        trailing_slash = true,
+                        label_trailing_slash = true,
+                        get_cwd = function(context) return vim.fn.expand(('#%d:p:h'):format(context.bufnr)) end,
+                        show_hidden_files_by_default = true,
+                        ignore_root_slash = true,
+                    }
+                }
+            },
         },
 
         -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
