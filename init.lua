@@ -1,9 +1,10 @@
 vim.opt.termguicolors = true
 
-vim.cmd("colorscheme eldar")
+vim.cmd("colorscheme pop-punk")
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.messagesopt = "wait:30,history:500"
 vim.cmd("set relativenumber")
 vim.cmd("set number")
 vim.cmd("set cursorline")
@@ -43,15 +44,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- Format immediately after pasting in normal/visual mode
-local function format_after_paste(keys)
-    return function()
-        vim.api.nvim_feedkeys(keys, "n", false) -- perform the paste
-        vim.lsp.buf.format({ async = true })    -- format buffer asynchronously
-    end
-end
+-- local function format_after_paste(keys)
+-- return function()
+-- vim.api.nvim_feedkeys(keys, "n", false) -- perform the paste
+-- vim.lsp.buf.format({ async = true })    -- format buffer asynchronously
+-- end
+-- end
 
-vim.keymap.set({ "n", "x" }, "p", format_after_paste("p"), { noremap = true, silent = true })
-vim.keymap.set({ "n", "x" }, "P", format_after_paste("P"), { noremap = true, silent = true })
+--vim.keymap.set({ "n", "x" }, "p", format_after_paste("p"), { noremap = true, silent = true })
+--vim.keymap.set({ "n", "x" }, "P", format_after_paste("P"), { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
@@ -64,4 +65,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 require("config.keymaps")
 require("config.lazy")
-require("config.lazy")
+require("config.hpack")
