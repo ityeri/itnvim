@@ -8,8 +8,22 @@ return {
     opts = {
         inlay_hints = { enabled = true },
         servers = {
-            lua_ls = {}
-        }
+            lua_ls = {},
+            sqls = { -- TODO sql lowercase formmating...
+                settings = {
+                    formatter = {
+                        lowerCase = true,
+                        lowercase = true,
+                    },
+                    sqls = {
+                        formatter = {
+                            lowerCase = true,
+                            lowercase = true,
+                        },
+                    }
+                },
+            },
+        },
     },
     config = function(_, opts)
         for server, config in pairs(opts.servers) do
