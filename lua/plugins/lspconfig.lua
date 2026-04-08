@@ -9,16 +9,18 @@ return {
         inlay_hints = { enabled = true },
         servers = {
             lua_ls = {},
-            sqls = { -- TODO sql lowercase formmating...
+            sqls = { -- TODO sql lowercase formmating... https://github.com/sqls-server/sqls setting method in readme
                 settings = {
                     formatter = {
                         lowerCase = true,
                         lowercase = true,
+                        lowercaseKeywords = true,
                     },
                     sqls = {
                         formatter = {
                             lowerCase = true,
                             lowercase = true,
+                            lowercaseKeywords = true,
                         },
                     }
                 },
