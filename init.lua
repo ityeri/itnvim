@@ -1,5 +1,5 @@
 do -- Load extrenal config, modules
-  require("config.lazy_boot")
+  require("config.lazy_setup")
   require("config.lsp")
 end
 
