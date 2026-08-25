@@ -1,17 +1,25 @@
 return {
   {
     "mason-org/mason.nvim",
-    opts = {}
+    opts = {
+    }
   },
   {
-    "mason-org/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
-        -- These names are from the package name. See the next of the lsp name in mason setting view
-        "lua_ls",
-        "rust_analyzer",
-        "yamlls",
+        -- Theas names could be either the package name or lspconfig name by mason-lspconfig plugin
+        -- ex: lua-language-server is a package name and lua_ls is a lspconfig name. Both of them is recognizable
+        -- std: package name
+        "lua-language-server",
+        "rust-analyzer",
+        "yaml-language-server",
         "kube-linter"
+      },
+    },
+    {
+      "mason-org/mason-lspconfig.nvim",
+      opts = {
       },
       automatic_enable = true
     },
