@@ -2,7 +2,7 @@ vim.lsp.config(
   "rust-analyzer",
   {
     cmd = { "rust-analyzer" },
-    filetypes = { "rust" },
+    filetypes = { "rust" }
   }
 )
 vim.lsp.enable("rust-analyzer")
@@ -12,6 +12,16 @@ vim.lsp.config(
   {
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
+    settings = {
+      Lua = {
+        format = {
+          defaultConfig = {
+            quote_style = "double",
+            trailing_table_separator = "never"
+          }
+        }
+      }
+    }
   }
 )
 vim.lsp.enable("lua-language-server")
