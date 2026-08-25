@@ -1,3 +1,8 @@
+do -- Load extrenal config, modules
+  require("config.lazy_boot")
+  require("config.lsp")
+end
+
 do -- General nvim native settings
   vim.opt.clipboard = "unnamedplus"
   vim.g.mapleader = " "
@@ -11,6 +16,8 @@ do -- General nvim native settings
   vim.opt.shiftwidth = 2
   vim.opt.expandtab = true
   vim.opt.statuscolumn = " %@v:lua.require'snacks.statuscolumn'@%s%=%l │"
+
+  vim.opt.timeoutlen = 300 -- Timeout between keymap chain (ms)
 
   -- Error & Warning message displaying
   vim.diagnostic.config({
@@ -29,9 +36,7 @@ do -- Native feature keymap settings
   vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
   vim.keymap.set("n", "-", "^", { desc = "Goto start of the line" })
-end
 
-do -- Load extrenal config, modules
-  require("config.lazy_boot")
-  require("config.lsp")
+  vim.keymap.set("n", "gn", vim.lsp.buf.rename)
+  vim.keymap.set("n", "ga", vim.lsp.buf.code_action)
 end
