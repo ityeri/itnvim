@@ -1,14 +1,14 @@
 vim.lsp.config(
-  "rust-analyzer",
+  "rust_analyzer",
   {
     cmd = { "rust-analyzer" },
     filetypes = { "rust" }
   }
 )
-vim.lsp.enable("rust-analyzer")
+vim.lsp.enable("rust_analyzer")
 
 vim.lsp.config(
-  "lua-language-server",
+  "lua_ls",
   {
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
@@ -24,7 +24,7 @@ vim.lsp.config(
     }
   }
 )
-vim.lsp.enable("lua-language-server")
+vim.lsp.enable("lua_ls")
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
@@ -42,5 +42,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end
 })
-
-vim.lsp.completion.enable()
