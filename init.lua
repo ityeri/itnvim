@@ -1,4 +1,5 @@
 require("config.lazy_boot") -- Bootstrapping lazynvim
+require("config.lsp")
 
 vim.opt.clipboard = "unnamedplus"
 vim.g.mapleader = " "
@@ -16,4 +17,3 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.statuscolumn = " %@v:lua.require'snacks.statuscolumn'@%s%=%l │"
-
