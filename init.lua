@@ -29,6 +29,13 @@ do -- General nvim native settings
   })
 end
 
+do
+  local line_nr_color = "#5a6283"
+  vim.api.nvim_set_hl(0, "LineNr", { fg = line_nr_color })
+  vim.api.nvim_set_hl(0, "LineNrAbove", { fg = line_nr_color })
+  vim.api.nvim_set_hl(0, "LineNrBelow", { fg = line_nr_color })
+end
+
 do -- Native feature keymap settings
   vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
   vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
