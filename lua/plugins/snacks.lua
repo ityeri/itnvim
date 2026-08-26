@@ -11,12 +11,12 @@ return {
     scroll = {
       enabled = true,
       animate = {
-        duration = { step = 5, total = 500 },
+        duration = { step = 5, total = 300 },
         easing = "inOutCubic"
       },
       animate_repeat = {
         delay = 100,
-        duration = { step = 5, total = 50 },
+        duration = { step = 5, total = 200 },
         easing = "outCubic"
       }
     }
