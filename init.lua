@@ -39,4 +39,20 @@ do -- Native feature keymap settings
 
   vim.keymap.set("n", "gn", vim.lsp.buf.rename)
   vim.keymap.set("n", "ga", vim.lsp.buf.code_action)
+
+  vim.keymap.set("n", "<leader>bda", function()
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+      if vim.bo[buf].buftype == "" then
+        pcall(vim.api.nvim_buf_delete, buf, { force = false })
+      end
+    end
+  end, { desc = "Close all buffers" })
+  vim.keymap.set("n", "<leader>bdd", function()
+    local cur = vim.api.nvim_get_current_buf()
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+      if buf ~= cur and vim.bo[buf].buftype == "" then
+        pcall(vim.api.nvim_buf_delete, buf, { force = false })
+      end
+    end
+  end, { desc = "Close all buffers except current" })
 end
