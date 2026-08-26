@@ -1,4 +1,29 @@
 -- automatic enable: In lua/plugins/mason.lus
+vim.lsp.config(
+  "rust_analyzer",
+  {
+    cmd = { "rust-analyzer" },
+    filetypes = { "rust" }
+  }
+)
+
+vim.lsp.config(
+  "lua_ls",
+  {
+    cmd = { "lua-language-server" },
+    filetypes = { "lua" },
+    settings = {
+      Lua = {
+        format = {
+          defaultConfig = {
+            quote_style = "double",
+            trailing_table_separator = "never"
+          }
+        }
+      }
+    }
+  }
+)
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
