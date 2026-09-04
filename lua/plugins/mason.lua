@@ -17,12 +17,13 @@ return {
         "kube-linter"
       },
     },
-    {
-      "mason-org/mason-lspconfig.nvim",
-      opts = {
+dependencies = {
+      "mason-org/mason.nvim",
+      {
+        "mason-org/mason-lspconfig.nvim",
+        opts = { automatic_enable = true },
+        dependencies = { "neovim/nvim-lspconfig" },
       },
-      automatic_enable = true
     },
-    dependencies = { "neovim/nvim-lspconfig" }
   }
 }
