@@ -13,17 +13,24 @@ return {
         -- std: package name
         "lua-language-server",
         "rust-analyzer",
+        "pyright",
+        "nil",
+        "jdtls",
+        "kotlin-lsp",
+        "lemminx",
+        "json-lsp",
         "yaml-language-server",
-        "kube-linter"
-      },
+        "kube-linter",
+        "taplo"
+      }
     },
-dependencies = {
+    dependencies = {
       "mason-org/mason.nvim",
       {
         "mason-org/mason-lspconfig.nvim",
         opts = { automatic_enable = true },
-        dependencies = { "neovim/nvim-lspconfig" },
-      },
-    },
+        dependencies = { "neovim/nvim-lspconfig" }
+      }
+    }
   }
 }
