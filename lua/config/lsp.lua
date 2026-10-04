@@ -1,12 +1,5 @@
 -- automatic enable: In lua/plugins/mason.lus
-vim.lsp.config(
-  "rust_analyzer",
-  {
-    cmd = { "rust-analyzer" },
-    filetypes = { "rust" }
-  }
-)
-
+-- lua_ls setting hooks is exists for the double quote formmating setting exceptionally
 vim.lsp.config(
   "lua_ls",
   {
