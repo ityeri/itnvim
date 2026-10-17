@@ -1,9 +1,1 @@
-# 밍코 네빔 세팅 포크
-
-## 설치
-
-```shell
-git clone https://github.com/ityeri/itnvim ~/.config/nvim
-```
-
-TODO 윈도우 경로
+언어 추가 할때는 `./lua/plugins/mason.lua` 랑 `./lua/plugins/treesitter.lua` 파일 수정 ㄱ

@@ -1,68 +1,65 @@
-vim.opt.termguicolors = true
+do -- Load extrenal config, modules
+  require("config.lazy_setup")
+  require("config.lsp")
+end
 
-vim.cmd("colorscheme eldar")
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.messagesopt = "wait:30,history:500"
-vim.cmd("set relativenumber")
-vim.cmd("set number")
-vim.cmd("set cursorline")
-vim.cmd("set mouse=a")
-vim.cmd("set clipboard+=unnamedplus")
+do -- General nvim native settings
+  vim.opt.clipboard = "unnamedplus"
+  vim.g.mapleader = " "
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "#0d1013" })
-vim.api.nvim_set_hl(0, "CursorLine", { bg = "#101010", fg = nil })
+  vim.opt.number = true
+  vim.opt.relativenumber = true
 
-vim.diagnostic.config({
-    underline = true, -- enable underline
+  vim.diagnostic.config({ virtual_text = true })
+
+  vim.opt.tabstop = 4
+  vim.opt.shiftwidth = 2
+  vim.opt.expandtab = true
+  vim.opt.statuscolumn = " %@v:lua.require'snacks.statuscolumn'@%s%=%l │"
+
+  vim.opt.timeoutlen = 300 -- Timeout between keymap chain (ms)
+
+  -- Error & Warning message displaying
+  vim.diagnostic.config({
+    underline = true,
     virtual_text = true,
-    signs = true,     -- keep gutter signs
+    signs = true,
     update_in_insert = false,
-    severity_sort = true,
-})
+    severity_sort = true
+  })
+end
 
-vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-    callback = function()
-        pcall(vim.lsp.codelens.refresh)
-    end,
-})
+do
+  local line_nr_color = "#5a6283"
+  vim.api.nvim_set_hl(0, "LineNr", { fg = line_nr_color })
+  vim.api.nvim_set_hl(0, "LineNrAbove", { fg = line_nr_color })
+  vim.api.nvim_set_hl(0, "LineNrBelow", { fg = line_nr_color })
+end
 
-vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client and client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
-        end
-    end,
-})
+do -- Native feature keymap settings
+  vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+  vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+  vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+  vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-    callback = function(args)
-        vim.lsp.buf.format({ bufnr = args.buf, async = true })
-    end,
-})
+  vim.keymap.set("n", "-", "^", { desc = "Goto start of the line" })
 
--- Format immediately after pasting in normal/visual mode
--- local function format_after_paste(keys)
--- return function()
--- vim.api.nvim_feedkeys(keys, "n", false) -- perform the paste
--- vim.lsp.buf.format({ async = true })    -- format buffer asynchronously
--- end
--- end
+  vim.keymap.set("n", "gn", vim.lsp.buf.rename)
+  vim.keymap.set("n", "ga", vim.lsp.buf.code_action)
 
---vim.keymap.set({ "n", "x" }, "p", format_after_paste("p"), { noremap = true, silent = true })
---vim.keymap.set({ "n", "x" }, "P", format_after_paste("P"), { noremap = true, silent = true })
-
-vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-        vim.highlight.on_yank({
-            higroup = "Visual", -- highlight style
-            timeout = 150,      -- duration in milliseconds
-        })
-    end,
-})
-
-require("config.keymaps")
-require("config.lazy")
-require("config.hpack")
+  vim.keymap.set("n", "<leader>bda", function()
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+      if vim.bo[buf].buftype == "" then
+        pcall(vim.api.nvim_buf_delete, buf, { force = false })
+      end
+    end
+  end, { desc = "Close all buffers" })
+  vim.keymap.set("n", "<leader>bdd", function()
+    local cur = vim.api.nvim_get_current_buf()
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+      if buf ~= cur and vim.bo[buf].buftype == "" then
+        pcall(vim.api.nvim_buf_delete, buf, { force = false })
+      end
+    end
+  end, { desc = "Close all buffers except current" })
+end
