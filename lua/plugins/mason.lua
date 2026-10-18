@@ -16,7 +16,7 @@ return {
         "pyright",
         "nil",
         "jdtls",
-        "kotlin-lsp",
+        -- "kotlin-lsp",
         "lemminx",
         "json-lsp",
         "yaml-language-server",
