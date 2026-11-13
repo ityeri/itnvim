@@ -1,7 +1,9 @@
 -- automatic enable: In lua/plugins/mason.lus
 -- lsp settings in here are for additional settings
+-- type preview: nvim_lsp_endhints.lua plugin
 
--- lua_ls setting hooks is exists for the double quote formmating setting
+-- lua_ls setting hooking for the double quote formmating setting
+-- lua_ls is builtin of nvim
 vim.lsp.config(
   "lua_ls",
   {
@@ -19,7 +21,8 @@ vim.lsp.config(
     }
   }
 )
--- issue: taplo lsp ignores every .toml file because of some workspace issue
+
+-- issue: taplo lsp ignores every .toml file because of some workspace analyze
 vim.lsp.config("taplo", {
   root_dir = function(bufnr, on_dir)
     local root = vim.fs.root(bufnr, { ".taplo.toml", "taplo.toml", ".git" })
