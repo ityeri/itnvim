@@ -47,7 +47,8 @@ do -- Native feature keymap settings
   vim.keymap.set("n", "gn", vim.lsp.buf.rename)
   vim.keymap.set("n", "ga", vim.lsp.buf.code_action)
 
-  vim.keymap.set("n", "<leader>bdc", function()
+  -- Close current buffer without window deleting
+  vim.keymap.set("n", "<leader>bdd", function()
     local cur = vim.api.nvim_get_current_buf()
 
     -- Non-text buffers and unsaved changes keep native :bd behavior
@@ -75,6 +76,7 @@ do -- Native feature keymap settings
     pcall(vim.api.nvim_buf_delete, cur, { force = false })
   end, { desc = "Close current buffer, keep window" })
 
+  -- Close all buffers
   vim.keymap.set("n", "<leader>bda", function()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
       if vim.bo[buf].buftype == "" then
@@ -82,7 +84,9 @@ do -- Native feature keymap settings
       end
     end
   end, { desc = "Close all buffers" })
-  vim.keymap.set("n", "<leader>bdd", function()
+
+  -- Close all buffers except current buffer
+  vim.keymap.set("n", "<leader>bdc", function()
     local cur = vim.api.nvim_get_current_buf()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
       if buf ~= cur and vim.bo[buf].buftype == "" then
