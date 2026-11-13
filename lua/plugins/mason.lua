@@ -13,7 +13,7 @@ return {
         -- std: package name
         "lua-language-server",
         "rust-analyzer",
-        "pyright",
+        "ty",
         "nil",
         "jdtls",
         -- "kotlin-lsp",
