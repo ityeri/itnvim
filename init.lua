@@ -36,6 +36,16 @@ do
   vim.api.nvim_set_hl(0, "LineNrBelow", { fg = line_nr_color })
 end
 
+do -- rust-analyzer emits `unresolvedReference` for macro-generated symbols and
+   -- tokyonight paints that semantic token as a red undercurl. Drop the mark:
+   -- the token still keeps its syntax/treesitter color.
+  local function clear_unresolved()
+    vim.api.nvim_set_hl(0, "@lsp.type.unresolvedReference", {})
+  end
+  clear_unresolved()
+  vim.api.nvim_create_autocmd("ColorScheme", { callback = clear_unresolved })
+end
+
 do -- Native feature keymap settings
   vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
   vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
